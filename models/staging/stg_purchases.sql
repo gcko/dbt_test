@@ -5,8 +5,7 @@ with source as (SELECT *
                         customer_id,
                         store_id,
                         purchase_date,
-                        -- divide by 100 (test)
-                        amount / 100 as amount
+                        amount
                  FROM source)
 
 SELECT *

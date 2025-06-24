@@ -1,7 +1,7 @@
 with source as (SELECT *
                 FROM {{ ref('raw_sales') }}),
 
-     renamed as (SELECT as sale_id, store_id, amount, sale_date
+     renamed as (SELECT sale_id, store_id, amount, sale_date
 FROM source)
 
 SELECT *

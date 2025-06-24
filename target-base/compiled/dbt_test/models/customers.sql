@@ -1,12 +1,12 @@
 with customers as (
 
-    select * from {{ ref('stg_customers') }}
+    select * from "prod"."main"."stg_customers"
 
 ),
 
 purchases as (
 
-    select * from {{ ref('stg_purchases') }}
+    select * from "prod"."main"."stg_purchases"
 
 ),
 

@@ -1,0 +1,23 @@
+[tool.poetry]
+package-mode = false
+
+[project]
+name = "dbt_test"
+version = "0.1.0"
+description = "Test for DBT"
+authors = [
+    {name = "Jared Scott",email = "jared.scott@variable.team"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "duckdb (>=1.3.1,<2.0.0)",
+    "dbt-core (>=1.10.2,<2.0.0)",
+    "dbt-duckdb (>=1.9.3,<2.0.0)",
+    "recce (>=1.8.0,<2.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

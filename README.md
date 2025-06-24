@@ -1,1 +1,1 @@
-# dbt-test
+# dbt_test

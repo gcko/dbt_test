@@ -1,0 +1,13 @@
+dbt_test:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: 'dbt_test.duckdb'
+      threads: 24
+    prod:
+      type: duckdb
+      path: 'dbt_test.duckdb'
+      schema: prod
+      threads: 24
+poe

@@ -1,0 +1,85 @@
+version: 2
+
+models:
+  - name: stg_cities
+    columns:
+      - name: city_id
+        tests:
+          - unique
+          - not_null
+      - name: city_name
+
+  - name: stg_customers
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: customer_name
+
+  - name: stg_employees
+    columns:
+      - name: employee_id
+        tests:
+          - unique
+          - not_null
+      - name: employee_name
+
+  - name: stg_employee_store
+    columns:
+      - name: store_id
+        tests:
+          - relationships:
+              to: ref('stg_stores')
+              field: id
+      - name: employee_id
+        tests:
+          - relationships:
+              to: ref('stg_employees')
+              field: id
+
+  - name: stg_purchases
+    columns:
+      - name: purchase_id
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        tests:
+          - relationships:
+              to: ref('customers')
+              field: id
+      - name: store_id
+        tests:
+          - relationships:
+              to: ref('stg_stores')
+              field: id
+      - name: purchase_date
+      - name: amount
+
+  - name: stg_sales
+    columns:
+      - name: sale_id
+        tests:
+          - unique
+          - not_null
+      - name: store_id
+        tests:
+          - relationships:
+              to: ref('stg_stores')
+              field: id
+      - name: amount
+      - name: sale_date
+
+  - name: stg_stores
+    columns:
+      - name: store_id
+        tests:
+          - unique
+          - not_null
+      - name: store_name
+      - name: city_id
+        tests:
+          - relationships:
+              to: ref('stg_cities')
+              field: id
